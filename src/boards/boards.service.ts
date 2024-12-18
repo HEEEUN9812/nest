@@ -4,22 +4,20 @@ import { v1 as uuid } from 'uuid';
 import { CreateBoardDto } from './dto/create-board';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Board } from './board.entity';
+// import { Board } from './board.entity';
 
 @Injectable()
 export class BoardsService {
 
-    constructor(
-    @InjectRepository(Board)
-    private boardRepository: Repository<Board>
-    ) {
-        this.boardRepository = boardRepository;
-    }
+    // constructor(
+    // @InjectRepository(Board)
+    // private boardRepository: Repository<Board>,
+    // ) {}
 
-    // private boards: Board[] = [];
+    private boards: Board[] = [];
 
     getAllBoards(): Board[] {
-        return this.boardRepository.find();
+        return this.boards;
     }
 
     getBoardById(id: string): Board {
